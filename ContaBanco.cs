@@ -1,52 +1,52 @@
 using System;
 
-class POO_Aula06
+class OOP_Aula06
 {
     static void Main()
     {
-        ContaBanco c1 = new ContaBanco("Felipe");
-        ContaBanco c2 = new ContaBanco("Karoline");
-        c1.abrirConta("CC");
-        c2.abrirConta("CP");
-        //Console.WriteLine("Nome do Dono: " + c1.getDono()); 
-        //Console.WriteLine("Número da conta: " + c1.getNumConta()); 
-        Console.WriteLine("Saldo da conta: " + c1.getSaldo());
+        BankAccount c1 = new BankAccount("Felipe");
+        BankAccount c2 = new BankAccount("Karoline");
+        c1.openAccount("CC");
+        c2.openAccount("CP");
+        //Console.WriteLine("Nome do owner: " + c1.getowner()); 
+        //Console.WriteLine("Número da conta: " + c1.getnumAccount()); 
+        Console.WriteLine("Bank Account Balance: " + c1.getBalance());
     }
 }
 
-class ContaBanco
+class BankAccount
 {
     //Atributos
-    public int numConta;
-    public string dono;
+    public int numAccount;
+    public string owner;
     public bool status;
-    public string tipo;
-    public float saldo; 
+    public string type;
+    public float balance; 
 
     //Método Construtor
-    public ContaBanco(string d) {
+    public BankAccount(string d) {
         status = false;
-        saldo = 0;
-        dono = d;
+        balance = 0;
+        owner = d;
     }
 
     //Métodos Específicos
-    public void abrirConta(string t) {
-        tipo = t;
+    public void openAccount(string t) {
+        type = t;
         if (t == "CC") {
-            saldo = 100;
+            balance = 100;
         } else if (t == "CP") {
-            saldo = 50;
+            balance = 50;
         } else {
-            Console.WriteLine("Tipo de conta inválida!");
+            Console.WriteLine("type de conta inválida!");
         }
         status = true;
     }
 
     public void fecharConta() {
-        if (saldo > 0) {
-            Console.WriteLine("Ainda há saldo, não foi possível encerrar esta conta!");
-        } else if (saldo < 0) {
+        if (balance > 0) {
+            Console.WriteLine("Ainda há Balance, não foi possível encerrar esta conta!");
+        } else if (balance < 0) {
             Console.WriteLine("Existe débito, não foi possível encerrar esta conta!");
         } else {
             status = false;
@@ -54,53 +54,53 @@ class ContaBanco
         }
     }
 
-    public void depositar(float deposito) {
-        saldo += deposito;
+    public void depositar(float deposit) {
+        balance += deposit;
     
     }
 
     //Métodos Getters e Setters
-    public int getNumConta()
+    public int getnumAccount()
     {
-        return numConta;
+        return numAccount;
     }
 
-    public void setNumConta(int n)
+    public void setnumAccount(int n)
     {
-        numConta = n;
+        numAccount = n;
     }
 
-    public string getDono()
+    public string getowner()
     {
-        return dono;
+        return owner;
     }
 
-    public void setDono(string d)
+    public void setowner(string d)
     {
-        dono = d;
+        owner = d;
     }
 
-    public bool getStatus() {
+    public bool getstatus() {
         return status;
     }
 
-    public void setStatus(bool s) {
+    public void setstatus(bool s) {
         status = s;
     }
 
-    public float getSaldo() {
-        return saldo;
+    public float getbalance() {
+        return balance;
     }
 
-    public void setSaldo(float s) {
-        saldo = saldo + s;
+    public void setbalance(float s) {
+        balance = balance + s;
     }
 
-    public string getTipo() {
-        return tipo;
+    public string gettype() {
+        return type;
     }
 
-    public void setTipo(string t) {
-        tipo = t;
+    public void settype(string t) {
+        type = t;
     } 
 }
