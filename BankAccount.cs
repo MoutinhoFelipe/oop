@@ -5,7 +5,7 @@ class OOP_Lesson06
     static void Main()
     {
         //Creating a instance
-        BankAccount c1 = new BankAccount(1,"Xarope O P");
+        BankAccount c1 = new BankAccount(1,"Xarope");
 
         //Opening a bank account and depositing some money in it
         c1.openAccount("CC");
